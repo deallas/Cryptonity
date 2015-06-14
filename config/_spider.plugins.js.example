@@ -1,0 +1,31 @@
+module.exports = {
+    "btce": {
+        "autoStartSpider": true,
+        "cronTime": "*/3 * * * * *"
+    },
+    "bitcurex": {
+        "autoStartSpider": true,
+        "cronTime": "*/10 * * * * *"
+    },
+    "okcoin": {
+        "autoStartSpider": true
+    },
+    "huobi": {
+        "autoStartSpider": true
+    },
+    "bitmarket": {
+        "autoStartSpider": true,
+        "cronTime": "*/15 * * * * *"
+    },
+    "btcchina": {
+        "autoStartSpider": true
+    },
+    "bitfinex": {
+        "autoStartSpider": true,
+        "cronTime": "*/3 * * * * *"
+    },
+    "bitstamp": {
+        "autoStartSpider": true,
+        "cronTime": "*/3 * * * * *"
+    }
+};

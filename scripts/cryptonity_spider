@@ -1,0 +1,75 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:             cryptonity_spider
+# Required-Start:       $local_fs $network $remote_fs
+# Should-Start:         redis_buffer
+# Should-Stop:          redis_buffer
+# Required-Stop:        $local_fs $network $remote_fs
+# Default-Start:        2 3 4 5
+# Default-Stop:         0 1 6
+# Short-Description:    start and stop Cryptonity Spider
+# Description:          Cryptonity Spider
+### END INIT INFO
+ 
+basedir=/opt/cryptonity
+
+lsb_functions="/lib/lsb/init-functions"
+if test -f $lsb_functions ; then
+    . $lsb_functions
+else
+    log_success_msg()
+    {
+        echo " SUCCESS! $@"
+    }
+    log_failure_msg()
+    {
+        echo " ERROR! $@"
+    }
+fi
+
+PATH="/sbin:/usr/sbin:/bin:/usr/bin:$basedir/bin"
+export PATH
+
+export APP_ENV=production
+
+mode=$1
+case "$mode" in
+    'start')
+        echo $echo_n "Starting Cryptonity Spider"
+        if test -x $basedir/spider
+        then
+            $basedir/spider start
+            exit 0
+        else
+            log_failure_msg "Couldn't find Cryptonity Spider ($basedir/spider)"
+        fi
+        ;;
+
+    'stop')
+        echo $echo_n "Stopping Cryptonity Spider"
+        if test -x $basedir/spider
+        then
+            $basedir/spider stop
+            exit 0
+        else
+            log_failure_msg "Couldn't find Cryptonity Spider ($basedir/spider)"
+        fi
+        ;;
+
+    'restart')
+        echo $echo_n "Restarting Cryptonity Spider"
+        if $0 stop; then
+            $0 start
+        else
+            log_failure_msg "Failed to stop running spider, so refusing to try to start."
+            exit 1
+        fi
+        ;;
+    *)
+      basename=`basename "$0"`
+      echo "Usage: $basename  {start|stop|restart}  [ Cryptonity spider options ]"
+      exit 1
+    ;;
+esac
+
+exit 0

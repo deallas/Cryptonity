@@ -1,0 +1,14 @@
+config/_*.js
+config/_*.json
+test/config/_*.js
+test/config/_*.json
+log/*.log
+test/log/*.log
+data/*.json
+test/data/*.json
+node_modules/
+.installed
+npm-debug.log
+public/libs/
+.bowerrc
+.idea

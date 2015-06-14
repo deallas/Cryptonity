@@ -1,0 +1,13 @@
+module.exports = {
+    "schema":               APP_PATH + '/schema.js',
+    "host":                 "",
+    "database":             "",
+    "username":             "",
+    "password":             "",
+    "port":                 3306,
+    "minConnections":       0,
+    "maxConnections":       5, 
+    "maxIdleTime":          30,
+    "maxConcurrentQueries": 50,
+    "logging":              false
+}

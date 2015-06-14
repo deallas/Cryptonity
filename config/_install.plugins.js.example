@@ -1,0 +1,26 @@
+module.exports = {
+    "btce": {
+        "autoStartSpider": false
+    },
+    "bitcurex": {
+        "autoStartSpider": false
+    },
+    "okcoin": {
+        "autoStartSpider": false
+    },
+    "huobi": {
+        "autoStartSpider": false
+    },
+    "bitmarket": {
+        "autoStartSpider": false
+    },
+    "btcchina": {
+        "autoStartSpider": false
+    },
+    "bitfinex": {
+        "autoStartSpider": false
+    },
+    "bitstamp": {
+        "autoStartSpider": false
+    }
+};
